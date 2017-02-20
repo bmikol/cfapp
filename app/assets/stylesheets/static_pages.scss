@@ -1,3 +1,45 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ----------------------------------------
+
+1. Base Styles
+2. Page Elements
+	2.1 Nav
+	2.2 Footer
+3. Typography
+
+---------------------------------------- */
+
+/* 1. Base Styles ---------------------- */
+
+body {
+	padding-top: 70px;
+}
+
+/* 2. Page Elements -------------------- */
+
+/* 2.1 Nav ----------------------------- */
+
+.navbar-header {
+	color: white;
+}
+
+/* 2.2 Footer -------------------------- */
+
+footer {
+	background-color: black;
+	color: gray;
+	height: 3.5em;
+	padding-top: 1em;
+	text-align: center;
+}
+
+/* 3. Typography ----------------------- */
+
+h1 {
+	font-family: Helvetica, Futura, Arial, sans-serif;
+	color: gray;
+	text-align: center;
+}
