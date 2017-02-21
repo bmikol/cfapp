@@ -2,15 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.table,
+h2 {
+	text-align: center;
+	font-size: 2em;
+}
+
 .product-show {
 	width: 90%;
 }
 
-.sixth {
-	width: 16.67%;
-}
-
 .create {
 	text-align: right;
+}
+
+.links {
+	text-align: center;
 }
