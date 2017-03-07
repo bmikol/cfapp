@@ -13,6 +13,8 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   	<nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -22,12 +24,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="projectName navbar-brand">
-            <a href="#">Bike Berlin</a>
-          </div><!-- end projectName -->
+          <a href="#" class="navbar-brand">Bike Berlin</a>
         </div><!-- end navbar-header -->
-	        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
           <%= form_tag("/products", method: "get", class: "navbar-form navbar-left", role: "search") do %>
             <div class="form-group">
               <%= text_field_tag(:q, "Search for products", class: "form-control") %>
@@ -38,6 +37,15 @@
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Contact", contact_path %></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+              <% else %>
+                <%= link_to('Login', new_user_session_path) %>
+              <% end %>
+            </li>
           </ul>
         </div><!-- end navbar collapse -->
       </div><!--end nav container -->
