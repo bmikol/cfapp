@@ -1,31 +1,113 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <% if notice %>
+    <div class="alert alert-danger" role="alert"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-danger" role="alert"><%= alert %></div>
+  <% end %>
+</div><!-- /row -->
+<div class="row nav-ctl">
+  <div class="col-md-12 col-sm-12">
+	  <%= link_to raw('<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back'), products_path, :class => "btn btn-default"  %>
+	  <%= link_to raw('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit'), edit_product_path(@product), :class => "btn btn-default edit"  %>
+  </div><!-- /nav-ctl -->
+</div><!-- /row -->
+<div class="row">
+  <div class="col-md-8 col-xs-12">
+		<%= image_tag(@product.image_url, class: "img-responsive") %>
+  </div><!-- /col-md-8 -->
+  <div class="col-md-4 col-xs-12">
+	  <table>
+	  	<tr>
+	  		<td><strong>Name:</strong></td>
+	  	</tr>
+	  	<tr>
+	  		<td><h2><%= @product.name %></h2></td>
+	  	</tr>
+	  	<tr>
+	  		<td><strong>Description:</strong></td>
+	  	</tr>
+	  	<tr>
+	  		<td><%= @product.description %></td>
+	  	</tr>
+	  	<tr>
+	  		<td><strong>Image url:</strong></td>
+	  	</tr>
+	  	<tr>
+	  		<td><%= link_to "#{@product.image_url}", @product.image_url %></td>
+	  	</tr>
+	  	<tr>
+	  		<td><strong>Colour:</strong></td>
+	  	</tr>
+	  	<tr>
+	  		<td><%= @product.colour %></td>
+	  	</tr>
+	  	<tr>
+	  		<td><strong>Price:</strong></td>
+	  	</tr>
+	  	<tr>
+	  		<td><%= number_to_currency(@product.price) %></td>
+	  	</tr>
+	  </table>
+	</div><!-- /col-md-4 -->
+</div><!-- /row -->
+<div class="row">
+  <div class="col-md-6 col-sm-12 hi-low">
+	  <h3>Highest Rated Review</h3>
+	  <h4>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	This is an awesome ride!
+	  </h4>
+  	<div>By Foo on January 1, 2017</div>
+  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
 
-<div class="product-show">
-	<p>
-	  <strong>Name:</strong>
-	  <%= @product.name %>
-	</p>
+	  <%= @product.highest_rating_comment %>
+  </div><!-- /col-md-6 -->
+  <div class="col-md-6 col-sm-12 hi-low">
+  	<h3>Lowest Rated Review</h3>
+	  <h4>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	This is a sucky ride!
+	  </h4>
+  	<div>By Bar on January 2, 2017</div>
+  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
 
-	<p>
-	  <strong>Description:</strong>
-	  <%= @product.description %>
-	</p>
+		<%= @product.lowest_rating_comment %>
+  </div><!-- /col-md-6 -->
+</div><!-- /row -->
+<div class="row">
+  <div class="col-md-12 reviews">
+  	<h3>All Reviews</h3>
 
-	<p>
-	  <strong>Image url:</strong>
-	  <%= @product.image_url %>
-	</p>
+	  <h4>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	This is an awesome ride!
+	  </h4>
+  	<div>By Foo on January 1, 2017</div>
+  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
 
-	<p>
-		<strong>Colour:</strong>
-		<%= @product.colour %>
-	</p>
+  	<h4>
+	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+	  	This is a sucky ride!
+	  </h4>
+  	<div>By Bar on January 2, 2017</div>
+  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
 
-	<p>
-		<strong>Price:</strong>
-		<%= @product.price %>
-	</p>
-
-	<%= link_to 'Edit', edit_product_path(@product) %> |
-	<%= link_to 'Back', products_path %>
-</div>
+  </div><!-- /col-md-12 -->
+</div><!-- /row -->
