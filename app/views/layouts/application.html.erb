@@ -33,7 +33,7 @@
         <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
           <%= form_tag("/products", method: "get", class: "navbar-form navbar-left", role: "search") do %>
             <div class="form-group">
-              <%= text_field_tag(:q, "Search for products", class: "form-control") %>
+              <%= text_field_tag(:q, nil, placeholder: "Search for products", class: "form-control") %>
             </div>
             <%= submit_tag("Search", class: "btn btn-default") %>
           <% end %>
