@@ -1,8 +1,14 @@
 <div class="product-reviews">
-	<h3>Customer Reviews</h3>
-	<% @comments.each do |comment| %>
-		<hr>
-		<h5><span class="rated" data-score="<%= comment.rating %>"></span> By <%= comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></h5>
-		<p class="comment-body"><%= comment.body %></p>
+	<h3><%= @comment_count %> Customer Reviews</h3>
+	<% if @product.comments.exists? %>
+		<% @comments.each do |comment| %>
+			<hr>
+			<h5><span class="rated" data-score="<%= comment.rating %>"></span> By <%= comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></h5>
+			<p class="comment-body"><%= comment.body %></p>
+		<% end %>
+	<% else %>
+			<p>There are no reviews yet.<% if signed_in? %> Add yours above now!<% end %></p>
 	<% end %>
+
+	<%= will_paginate @comments, class: "apple_pagination" %>
 </div><!-- /product-reviews -->

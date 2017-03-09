@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # Use CanCanCan for authorization
 gem 'cancancan', '~> 1.10'
+# Add pagination
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

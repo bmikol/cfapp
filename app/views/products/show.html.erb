@@ -46,7 +46,13 @@
 	  		<td><strong>Average Customer Rating:</strong></td>
 	  	</tr>
 	  	<tr>
-	  		<td><div class="rated" data-score="<%= @product.average_rating %>"></div></td>
+	  		<td>
+	  			<% if @product.comments.exists? %>
+	  				<div class="rated" data-score="<%= @product.average_rating %>"></div>
+					<% else %>
+						There are no reviews yet.
+					<% end %>
+				</td>
 	  	</tr>
 	  	<tr>
 	  		<td><strong>Price:</strong></td>
@@ -58,26 +64,24 @@
 	</div><!-- /col-md-4 -->
 </div><!-- /row -->
 <%= render 'new_comment' %>
-<div class="row">
-  <div class="col-md-6 col-sm-12 hi-low">
-	  <h3>Highest Rated Review</h3>
-	  <hr />
-	  <% if @product.comments.exists? %>
-	  	<h5><span class="rated" data-score="<%= @product.highest_rating_comment.rating %>"></span> By <%= @product.highest_rating_comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(@product.highest_rating_comment.created_at)} ago" %></em></small></h5>
+<% if @product.comments.exists? %>
+	<div class="row">
+	  <div class="col-md-6 col-sm-12 hi-low">
+		  <h3>Highest Rated Review</h3>
+		  <hr />
+		  	<h5><span class="rated" data-score="<%= @product.highest_rating_comment.rating %>"></span> By <%= @product.highest_rating_comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(@product.highest_rating_comment.created_at)} ago" %></em></small></h5>
 
-	  	<p class="comment-body"><%= @product.highest_rating_comment.body %></p>
-  	<% end %>
-  </div><!-- /col-md-6 -->
-  <div class="col-md-6 col-sm-12 hi-low">
-  	<h3>Lowest Rated Review</h3>
-  	<hr />
-	  <% if @product.comments.exists? %>
-  	<h5><span class="rated" data-score="<%= @product.lowest_rating_comment.rating %>"></span> By <%= @product.lowest_rating_comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(@product.lowest_rating_comment.created_at)} ago" %></em></small></h5>
+		  	<p class="comment-body"><%= @product.highest_rating_comment.body %></p>
+	  </div><!-- /col-md-6 -->
+	  <div class="col-md-6 col-sm-12 hi-low">
+	  	<h3>Lowest Rated Review</h3>
+	  	<hr />
+	  	<h5><span class="rated" data-score="<%= @product.lowest_rating_comment.rating %>"></span> By <%= @product.lowest_rating_comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(@product.lowest_rating_comment.created_at)} ago" %></em></small></h5>
 
-	  	<p class="comment-body"><%= @product.lowest_rating_comment.body %></p>
-		<% end %>
-  </div><!-- /col-md-6 -->
-</div><!-- /row -->
+		  	<p class="comment-body"><%= @product.lowest_rating_comment.body %></p>
+	  </div><!-- /col-md-6 -->
+	</div><!-- /row -->
+<% end %>
 <div class="row">
   <div class="col-md-12 col-sm-12">
 		<%= render 'comments' %>
