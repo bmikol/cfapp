@@ -43,6 +43,12 @@
 	  		<td><%= @product.colour %></td>
 	  	</tr>
 	  	<tr>
+	  		<td><strong>Average Customer Rating:</strong></td>
+	  	</tr>
+	  	<tr>
+	  		<td><div class="rated" data-score="<%= @product.average_rating %>"></div></td>
+	  	</tr>
+	  	<tr>
 	  		<td><strong>Price:</strong></td>
 	  	</tr>
 	  	<tr>
@@ -51,63 +57,29 @@
 	  </table>
 	</div><!-- /col-md-4 -->
 </div><!-- /row -->
+<%= render 'new_comment' %>
 <div class="row">
   <div class="col-md-6 col-sm-12 hi-low">
 	  <h3>Highest Rated Review</h3>
-	  <h4>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	This is an awesome ride!
-	  </h4>
-  	<div>By Foo on January 1, 2017</div>
-  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
+	  <hr />
+	  <% if @product.comments.exists? %>
+	  	<h5><span class="rated" data-score="<%= @product.highest_rating_comment.rating %>"></span> By <%= @product.highest_rating_comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(@product.highest_rating_comment.created_at)} ago" %></em></small></h5>
 
-	  <%= @product.highest_rating_comment %>
+	  	<p class="comment-body"><%= @product.highest_rating_comment.body %></p>
+  	<% end %>
   </div><!-- /col-md-6 -->
   <div class="col-md-6 col-sm-12 hi-low">
   	<h3>Lowest Rated Review</h3>
-	  <h4>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	This is a sucky ride!
-	  </h4>
-  	<div>By Bar on January 2, 2017</div>
-  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
+  	<hr />
+	  <% if @product.comments.exists? %>
+  	<h5><span class="rated" data-score="<%= @product.lowest_rating_comment.rating %>"></span> By <%= @product.lowest_rating_comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(@product.lowest_rating_comment.created_at)} ago" %></em></small></h5>
 
-		<%= @product.lowest_rating_comment %>
+	  	<p class="comment-body"><%= @product.lowest_rating_comment.body %></p>
+		<% end %>
   </div><!-- /col-md-6 -->
 </div><!-- /row -->
 <div class="row">
-  <div class="col-md-12 reviews">
-  	<h3>All Reviews</h3>
-
-	  <h4>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	This is an awesome ride!
-	  </h4>
-  	<div>By Foo on January 1, 2017</div>
-  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
-
-  	<h4>
-	  	<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-	  	This is a sucky ride!
-	  </h4>
-  	<div>By Bar on January 2, 2017</div>
-  	<p>Bacon ipsum dolor amet turducken cupim corned beef venison prosciutto shankle. Biltong shankle pancetta shank, sausage fatback porchetta ground round. Pork chop ground round bresaola porchetta fatback tongue sausage cupim sirloin kielbasa pancetta landjaeger capicola strip steak bacon. Kevin shoulder andouille, sirloin prosciutto shankle swine venison.</p>
-
-  </div><!-- /col-md-12 -->
+  <div class="col-md-12 col-sm-12">
+		<%= render 'comments' %>
+	</div><!-- /col-md-12 -->
 </div><!-- /row -->

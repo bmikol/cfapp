@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 	has_many :orders
-	has_many :comments
+	has_many :comments, dependent: :destroy
 
 	def self.search(search_term)
 		if Rails.env.production?
@@ -8,6 +8,10 @@ class Product < ApplicationRecord
 		elsif Rails.env.development?
 			Product.where("name LIKE ?", "%#{search_term}")
 		end
+	end
+
+	def average_rating
+		comments.average(:rating).to_f
 	end
 
 	def highest_rating_comment
