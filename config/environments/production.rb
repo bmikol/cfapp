@@ -60,9 +60,9 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Any dynamic links inside emails will generate the right URLs
-  config.action_mailer.default_url_options = { :host => 'bike-berlin-bmikol.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'https://bike-berlin-bmikol.herokuapp.com' }
   # Any assets linked to inside emails will actually render properly
-  config.action_mailer.asset_host = 'bike-berlin-bmikol.herokuapp.com'
+  config.action_mailer.asset_host = 'https://bike-berlin-bmikol.herokuapp.com'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
