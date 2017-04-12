@@ -23,9 +23,5 @@
 # Ignore environment variables (Shhh!)
 /config/environment_variables.yml
 
-# Ignore font & image assets
-/app/assets/images/*
-/app/assets/fonts/*
-
 # Ignore Rubocop's nitpicking
 /rubocop.txt
