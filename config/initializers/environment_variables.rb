@@ -5,7 +5,7 @@ module EnvironmentVariables
       env_file = Rails.root.join('config', 'environment_variables.yml').to_s
 
       if File.exist?(env_file)
-        YAML.load_file(env_file)[Rails.env].each do |key, value|
+        YAML.load_file(env_file)[Rails.env].try :each do |key, value|
           ENV[key.to_s] = value
         end
       end
