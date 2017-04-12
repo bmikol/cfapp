@@ -1,15 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="row">
+    	<h1>Bicycles</h1>
 
-<h1>Products</h1>
+    	<% if signed_in? && current_user.admin? %>
+    	  <%= link_to raw('<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Product'), new_product_path, :class => "btn btn-default right" %>
+    	<% end %>
+    </div>
+    <div class="row">
+      <% if @products.exists? %>
+    	  <%= render @products %>
+      <% else %>
+        <p class="p-link">Sorry, but it doesn&rsquo;t look like we have what you&rsquo;re looking for at the moment. <%= link_to 'Drop us a line', contact_path %> and we&rsquo;ll try to find it for you!</p>
+      <% end %>
+    </div>
 
-<div class="container">
-  <div class="row">
-    <%= render @products %>
-  </div><!-- /row -->
-</div><!-- /container -->
-
-<br>
-
-<div class="create">
-  <%= link_to 'New Product', new_product_path %>
+    <%= will_paginate @products, class: "apple_pagination" %>
+  </div>
 </div>

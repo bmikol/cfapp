@@ -1,16 +1,19 @@
-<h2>Forgot your password?</h2>
+<div class="row auth-panel">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+    <div class="login">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: 'form-login', method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+        <h2 class="form-login-heading">Forgot your password?</h2>
+        <p>Don&rsquo;t worry, we&rsquo;ll send you password instructions.</p>
+        <%= f.label :email, class: 'sr-only', for: 'inputEmail' %>
+        <%= f.email_field :email, class: 'form-control login-form', id: 'inputEmail', placeholder: 'Email address', required: true, autofocus: true %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+        <%= f.submit 'Submit', class: 'btn btn-lg btn-primary btn-block login-form' %>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div class="auth-links">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div><!-- /login -->
+  </div><!-- /col -->
+</div><!-- /row -->

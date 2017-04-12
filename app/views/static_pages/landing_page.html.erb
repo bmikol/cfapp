@@ -1,32 +1,18 @@
-<h2>Featured Product</h2>
+<div class="lplogo"><%= image_tag("BicycleBerlin-th.jpg", class: "img-responsive", alt: "Bicycle Berlin logo") %></div>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-	<!-- Indicators -->
-	<ol class="carousel-indicators">
-		<% @products.each_with_index do |product, index| %>
-			<li data-target="#carousel-example-generic" data-slide-to="<%= index %>"<%= raw ' class="active"' if index == 0 %>></li>
-		<% end %>
-	</ol>
+<div class="search-container">
+	<div class="search-bg"></div>
+	<div class="search">
+		<h1>Looking for a new ride to cruise the Stra&szlig;en?</h1>
 
-	<!-- Wrapper for slides -->
-	<div class="carousel-inner" role="listbox">
-		<% @products.each do |product| %>
-			<div class="item<%= " active" if product == @products.first %>">
-				<%= image_tag(product.image_url) %>
-				<div class="carousel-caption">
-					<%= product.name %>
-				</div><!-- /carousel-caption -->
-			</div><!-- /item -->
-		<% end %>
-	</div><!-- /carousel-inner -->
-
-		<!-- Controls -->
-		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div><!-- /carousel slide -->
+		<div class="lpaction">
+	    <%= form_tag("/products", method: "get", class: "form-inline lpsearch", role: "search") do %>
+	      <div class="form-group">
+	        <%= text_field_tag(:q, nil, placeholder: "Search for bicycles", class: "form-control") %>
+	      </div>
+	      <%= submit_tag("Search", class: "btn btn-default") %>
+	    <% end %>
+	  </div>
+	  <div class="lpaction">or <%= link_to "Browse", products_path %></div>
+	</div><!-- /search -->
+</div><!-- /search-container -->

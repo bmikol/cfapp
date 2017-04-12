@@ -13,3 +13,220 @@
  *= require_tree .
  *= require_self
  */
+
+/* ----------------------------------------
+//
+//  1. Base Styles
+//  2. Page Elements
+//    2.1 Nav
+//    2.2 Body
+//    2.3 Devise
+//    2.4 Footer
+//  3. Typography
+//
+// ------------------------------------- */
+
+/* 1. Base Styles ---------------------- */
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  color: black;
+  margin-bottom: 4em;
+  padding-top: 30px;
+}
+
+p {
+  margin-bottom: 0;
+  margin-top: 1em;
+}
+
+ul {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+ul ul {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.right {
+  float: right;
+}
+
+ /* 2. Page Elements -------------------- */
+
+ /* 2.1 Nav ----------------------------- */
+
+.bear {
+  background: url('/assets/bear-black.png') center no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+.bear:hover {
+  background: url('/assets/bear-red.png') center no-repeat rgb(255, 255, 255) rgba(255, 255, 255, 0.75);
+}
+
+.icon-bar {
+  background-color: black;
+}
+
+.sitenavbar {
+  background: white url('/assets/bg50.jpg') repeat-x;
+}
+
+.nav li a:hover,
+.navbar-brand a:hover,
+.navbar-header a:hover {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, .75);
+  color: #ed1c24;
+}
+
+/* 2.2 Body ---------------------------- */
+
+/* 2.3 Devise ------------------------- */
+
+.auth-links {
+  margin-top: 2em;
+}
+
+.auth-panel {
+  bottom: 0;
+  height: 55%;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.form-login p {
+  margin: 0 0 10px;
+}
+
+.form-login,
+.login {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.form-login .form-login-heading,
+.form-login .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-login .checkbox {
+  font-weight: normal;
+}
+
+.form-login .form-control {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  position: relative;
+  font-size: 16px;
+}
+
+.form-login .form-control:focus {
+  z-index: 2;
+}
+
+.form-login input[type="email"],
+.form-login input[type="password"] {
+  margin-bottom: -1px;
+}
+
+.form-login input[type="submit"] {
+  margin-top: 10px;
+}
+
+.form-login-heading {
+  text-align: center;
+}
+
+.remember {
+  padding-left: 1.5em;
+}
+
+.remember-label {
+  margin-left: -1.5em;
+  padding-top: .125em;
+}
+
+/* 2.5 Footer -------------------------- */
+
+.footer {
+  bottom: 0;
+  height: 4em;
+  left: 0;
+  padding-top: 2em;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.footer .container {
+  margin: 0;
+}
+
+.copy {
+  align-items: flex-end;
+  display: flex;
+  float: left;
+  font-size: 80%;
+  height: 100%;
+  padding: 0 0 2px 2px;
+  width: 50%;
+}
+
+.ftbox {
+  float: right;
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  right: 0;
+}
+
+.logo {
+  float: right;
+}
+
+/* 4. Typography ----------------------- */
+
+h1,
+h2 {
+  font-family: Helvetica, Futura, Arial, sans-serif;
+  text-align: center;
+}
+
+@font-face {
+    font-family: 'DyerArtsandCrafts';
+    src: url(font-path('fonts/DyerArtsandCrafts.eot'));
+    src: url(font-path('fonts/DyerArtsandCrafts.eot?#iefix')) format('embedded-opentype'),
+         url(font-path('fonts/DyerArtsandCrafts.woff2')) format('woff2'),
+         url(font-path('fonts/DyerArtsandCrafts.woff')) format('woff'),
+         url(font-path('fonts/DyerArtsandCrafts.ttf')) format('truetype'),
+         url(font-path('fonts/DyerArtsandCrafts.svg#DyerArtsandCrafts')) format('svg');
+}
+
+.brand {
+  font-family: 'DyerArtsandCrafts';
+  text-transform: uppercase;
+}
+
+.p-link a {
+  text-decoration: underline;
+}

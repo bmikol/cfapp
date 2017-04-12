@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="<%= @landing_page ? 'landing-page' : '' %>">
   <head>
     <title>Cfapp</title>
     <%= csrf_meta_tags %>
@@ -12,53 +12,17 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <% if notice %>
-      <div class="alert alert-success" id="notice"><%= notice %></div>
-    <% end %>
-    <% if alert %>
-      <div class="alert alert-danger" role="alert"><%= alert %></div>
-    <% end %>
-  	<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="#" class="navbar-brand">Bike Berlin</a>
-        </div><!-- end navbar-header -->
-        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-          <%= form_tag("/products", method: "get", class: "navbar-form navbar-left", role: "search") do %>
-            <div class="form-group">
-              <%= text_field_tag(:q, nil, placeholder: "Search for products", class: "form-control") %>
-            </div>
-            <%= submit_tag("Search", class: "btn btn-default") %>
-          <% end %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "About", about_path %></li>
-            <li><%= link_to "Contact", contact_path %></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li>
-              <% if user_signed_in? %>
-                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-              <% else %>
-                <%= link_to('Login', new_user_session_path) %>
-              <% end %>
-            </li>
-          </ul>
-        </div><!-- end navbar collapse -->
-      </div><!--end nav container -->
-    </nav><!-- end navbar -->
-
-    <%= yield %>
-
-    <footer>
-    	&copy; 2017 Bike Berlin
-    </footer>
+  <body class="<%= @landing_page ? 'lpbody' : '' %>">
+    <div class="container-fluid">
+      <%= render 'layouts/header' unless @disable_nav %>
+      <% if notice %>
+        <div class="alert alert-success" id="notice"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </div><!-- /container-fluid -->
+    <%= render 'layouts/footer' unless @disable_nav %>
   </body>
 </html>

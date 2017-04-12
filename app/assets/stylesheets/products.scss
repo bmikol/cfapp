@@ -3,69 +3,86 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 h2 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 .nav-ctl {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .destroy {
-	color: red;
+  color: red;
 }
 
 .edit {
-	float: right;
+  float: right;
+}
+
+.results {
+  margin: 0 auto;
+  max-height: 200px;
+}
+
+.highlight {
+  padding: 2em;
+}
+
+.highlight:nth-child(even) {
+  background-color: #f1f1f1;
 }
 
 .hi-low {
-	padding: 10px 20px 10px 20px;
-	margin-top: 1em;
+  padding: 10px 20px;
+  margin-top: 1em;
 }
 
 .add-review {
-	background-color: #f1f1f1;
-	padding: 2em;
-	margin: 2em 0;
-	border: 1px solid black;
+  background-color: #f1f1f1;
+  border: 1px solid #000;
+  margin: 2em 0;
+  padding: 2em;
 }
 
 .add-review h4 {
-	text-align: center;
-	margin-bottom: 2em;
+  margin-bottom: 2em;
+  text-align: center;
 }
 
 .submit {
-	float: right;
+  float: right;
 }
 
 .subarea {
-	bottom: 0;
-	right: 0;
-	position: absolute;
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
 
 #comment-area {
-	width: 100%;
-	height: 150px;
+  height: 150px;
+  width: 100%;
 }
 
 p.comment-body {
-	margin-left: 0;
-	margin-top: 1em;
+  margin-left: 0;
+  margin-top: 1em;
 }
 
 .create {
-	text-align: right;
+  text-align: right;
 }
 
 .links {
-	text-align: center;
+  text-align: center;
+}
+
+table h2 {
+  text-align: left;
 }
 
 .apple_pagination {
-  background: #f1f1f1;
-  border: 1px solid #e5e5e5;
+  background: white;
+  border-top: 1px solid #e5e5e5;
   text-align: center;
   padding: 1em;
   cursor: default; }

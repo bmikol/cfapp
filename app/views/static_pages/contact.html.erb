@@ -1,24 +1,33 @@
-<h1>Contact Us</h1>
-<p>Please feel free to reach out and contact us (but be forewarned we&rsquo;re completely imaginary, so unfortunately we can&rsquo;t respond):</p>
-
-<%= flash[:notice] %>
-
-<%= form_tag("/static_pages/thank_you") do %>
 <div class="row">
-	<div class="col-md-4">
-		<div class="form-group">
-			<%= label_tag :name %>
-			<%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name", :required => true %>
-		</div><!-- /form-group -->
-		<div class="form-group">
-			<%= label_tag :email, "Email Address" %>
-			<%= email_field_tag :email, nil, class: "form-control", placeholder: "Enter Email", :required => true %>
-		</div><!-- /form-group -->
-		<div class="form-group">
-			<%= label_tag :message %>
-			<%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message", :required => true %>
-		</div><!-- /form-group -->
-	</div><!-- /col -->
+  <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+  	<h1>Contact Us</h1>
+
+  	<div class="center">Please feel free to reach out!</div>
+
+  	<div class="contact-form">
+
+  		<%= flash[:notice] %>
+
+  		<%= form_tag("/thank_you") do %>
+  					<div class="form-group">
+  						<%= label_tag :name %>
+  						<%= text_field_tag :name, nil, class: "form-control", placeholder: "Enter Name", :required => true %>
+  					</div><!-- /form-group -->
+  					<div class="form-group">
+  						<%= label_tag :email, "Email Address" %>
+  						<%= email_field_tag :email, nil, class: "form-control", placeholder: "Enter Email", :required => true %>
+  					</div><!-- /form-group -->
+  					<div class="form-group">
+  						<%= label_tag :message %>
+  						<%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message", :required => true %>
+  					</div><!-- /form-group -->
+  			<%= submit_tag "Send", class: "btn btn-lg btn-primary btn-block" %>
+  		<% end %>
+  		<div class="disclaimer">
+  			<p>Please be forewarned we&rsquo;re completely imaginary, so unfortunately we can&rsquo;t respond.</p>
+
+  			<p><small>(If we were real, we would get back to you as soon as we could as we would value your hypothetical business!)</small></p>
+  		</div><!-- /disclaimer -->
+  	</div><!-- /contact-form -->
+  </div><!-- /col -->
 </div><!-- /row -->
-<%= submit_tag "Send" %>
-<% end %>

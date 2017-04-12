@@ -2,44 +2,109 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* ----------------------------------------
+// ----------------------------------------
+//
+//  1. Contact Form
+//  2. Landing Page
+//
+// -------------------------------------- /
 
-1. Base Styles
-2. Page Elements
-	2.1 Nav
-	2.2 Footer
-3. Typography
+// 1. Contact Form ---------------------- /
 
----------------------------------------- */
-
-/* 1. Base Styles ---------------------- */
-
-body {
-	padding-top: 70px;
+.contact-form {
+  background-color: #f1f1f1;
+  border: 1px black solid;
+  margin: 2em auto;
+  padding: 2em;
 }
 
-/* 2. Page Elements -------------------- */
+.disclaimer {
+  margin-top: 4em;
 
-/* 2.1 Nav ----------------------------- */
-
-.navbar-header {
-	color: white;
+  p {
+    margin: 1em 0 0;
+  }
 }
 
-/* 2.2 Footer -------------------------- */
+// 2. Landing Page ---------------------- /
 
-footer {
-	background-color: black;
-	color: gray;
-	height: 3.5em;
-	padding-top: 1em;
-	text-align: center;
+.lpbody,
+.search-bg {
+  background: url('/assets/unsplash-flo-karr.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+ }
+
+.lplogo {
+  display: block;
+  margin: 0 auto;
+  width: 133px;
 }
 
-/* 3. Typography ----------------------- */
+.lpsearch {
+  margin-top: 2em;
+}
 
-h1 {
-	font-family: Helvetica, Futura, Arial, sans-serif;
-	color: gray;
-	text-align: center;
+.search-container {
+  margin: 10% auto 0;
+  max-width: 600px;
+  min-width: 225px;
+  position: relative;
+  width: 75%;
+}
+
+.search-bg {
+  background-position: center;
+  bottom: 0;
+  -webkit-filter: blur(5px);
+  filter: url('/media/blur.svg#blur'), blur(5px);
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.search {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  font-weight: normal;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  z-index: 100;
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    background-color: transparent;
+  }
+
+  h1 {
+    color: black;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .lpbody {
+    padding: 10px;
+  }
+
+  .search-bg {
+    background-position: center -10px;
+  }
+}
+
+.lpaction {
+  display: inline-block;
+  margin-top: 1em;
 }
