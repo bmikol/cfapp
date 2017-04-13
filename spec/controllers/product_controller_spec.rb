@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe ProductsController, type: :controller do
   before do
-    @product = Product.create!(name: 'race bike', price: '99.99')
+    @product = FactoryGirl.create(:product)
+
   end
   describe 'GET #show' do
     before do

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe UsersController, type: :controller do
   before do
-    @user = User.create!(email: 'foo@bar.com', password: 'password')
+    # @user = User.create!(email: 'foo@bar.com', password: 'password')
+    @user = FactoryGirl.create(:user)
   end
   describe 'GET #show' do
     context 'user is logged in' do
@@ -24,7 +25,8 @@ describe UsersController, type: :controller do
     end
     context 'one user cannot view another' do
       before do
-        @user2 = User.create!(email: 'bar@bar.com', password: 'foobar')
+        # @user2 = User.create!(email: 'bar@bar.com', password: 'foobar')
+        @user2 = FactoryGirl.create(:user)
         sign_in @user
       end
       it 'redirects when user unauthorized' do

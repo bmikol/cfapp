@@ -48,6 +48,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   # Use rails-controller-testing for functional tests
   gem 'rails-controller-testing'
+  # Use factory girl for generating test data
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
