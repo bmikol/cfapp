@@ -54,6 +54,11 @@
       <tr>
         <td><%= number_to_currency(@product.price) %></td>
       </tr>
+      <tr>
+        <%= form_tag "/payments/create" do %>
+          <%= render partial: "shared/stripe_checkout_button" %>
+        <% end %>
+      </tr>
     </table>
   </div><!-- /col-md-4 -->
 </div><!-- /row -->
