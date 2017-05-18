@@ -8,7 +8,7 @@
 </div><!-- /row -->
 <div class="row">
   <div class="col-sm-8 col-xs-12">
-    <%= image_tag(@product.image_url, class: "img-responsive") %>
+    <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data: "zoom_image='#{@product.image_url}'") %>
   </div><!-- /col-md-8 -->
   <div class="col-sm-4 col-xs-12">
     <table>

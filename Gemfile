@@ -51,6 +51,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Use factory girl for generating test data
   gem 'factory_girl_rails', '~> 4.0'
+  # Use Brakeman to monitor for security
+  gem 'brakeman', require: false
 end
 
 group :development do
