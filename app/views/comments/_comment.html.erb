@@ -1,0 +1,8 @@
+<hr>
+<h5>
+  <div class="rated" data-score="<%= comment.rating %>"></div> By <%= comment.user.first_name %> <small><em> <%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small>
+    <% if signed_in? && current_user.admin? %>
+      <%= link_to ('<span class="glyphicon glyphicon-remove"></span> Delete').html_safe, product_comment_path(comment.product, comment), class: 'destroy', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+</h5>
+<p class="comment-body"><%= comment.body %></p>
