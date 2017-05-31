@@ -9,7 +9,9 @@
     </div>
     <div class="row">
       <% if @products.exists? %>
-    	  <%= render @products %>
+        <%= cache(cache_key_for_products) do %>
+      	  <%= render @products %>
+        <% end %>
       <% else %>
         <p class="p-link">Sorry, but it doesn&rsquo;t look like we have what you&rsquo;re looking for at the moment. <%= link_to 'Drop us a line', contact_path %> and we&rsquo;ll try to find it for you!</p>
       <% end %>

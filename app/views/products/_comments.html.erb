@@ -1,5 +1,5 @@
+<h3><%= @comment_count %> Customer Reviews</h3>
 <div class="product-reviews">
-  <h3><%= @comment_count %> Customer Reviews</h3>
   <% if @product.comments.exists? %>
     <% @comments.each do |comment| %>
       <%= render partial: 'comments/comment', locals: {comment: comment} %>
@@ -7,5 +7,4 @@
   <% else %>
       <p>There are no reviews yet.<% if signed_in? %> Add yours above now!<% end %></p>
   <% end %>
-
 </div><!-- /product-reviews -->
