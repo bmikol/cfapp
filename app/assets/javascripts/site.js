@@ -1,4 +1,4 @@
-let refreshRating = function () {
+var refreshRating = function () {
   // Use Raty plugin for comment ratings
   $('.rating').raty({ path: '/assets', scoreName: 'comment[rating]' })
   $('.rated').raty({ path: '/assets',
