@@ -26,3 +26,6 @@
 
 # Ignore Rubocop's nitpicking
 /rubocop.txt
+
+# Ignore NewRelic details
+/config/newrelic.yml

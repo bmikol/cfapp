@@ -25,4 +25,12 @@ class Product < ApplicationRecord
     comments.rating_asc.first
   end
 
+  def views
+    $redis.get("product:#{id}") # Equivalent to 'GET product:1'
+  end
+
+  def viewed!
+    $redis.incr("product:#{id}") # Equivalent to 'INC product:1'
+  end
+
 end

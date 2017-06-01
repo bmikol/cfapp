@@ -38,6 +38,10 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'stripe'
 # Add Dalli to use memcached
 gem 'dalli'
+# Add Redis for NoSQL key-value store
+gem 'redis-rails'
+# Add NewRelic for monitoring
+gem 'newrelic_rpm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
