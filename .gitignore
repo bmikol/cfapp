@@ -29,3 +29,6 @@
 
 # Ignore NewRelic details
 /config/newrelic.yml
+
+# Ignore ActionCable details
+/config/cable.yml
