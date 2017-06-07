@@ -57,7 +57,7 @@ describe UsersController, type: :controller do
       end
       it 'redirects user' do
         post :create, user: FactoryGirl.attributes_for(:user)
-        expect(response).to render_template(:show)
+        expect(response.status).to eq(302)
       end
     end
     context 'without valid attributes' do

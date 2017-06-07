@@ -26,31 +26,28 @@ describe ProductsController, type: :controller do
       expect(response).to have_http_status(200)
       expect(response).to render_template('index')
     end
-    context 'search' do
-      before do
-        @product2 = FactoryGirl.create(:product)
-        @product3 = FactoryGirl.create(:product)
-        @product4 = FactoryGirl.create(:product)
-      end
-      # it ''
+  end
+
+  describe 'GET #new' do
+    it 'is valid with name and price' do
+      get :new, product: FactoryGirl.attributes_for(:product)
+      expect(response).to be_success
     end
   end
 
   describe 'POST #create' do
     it 'is not valid without name' do
-      @product = FactoryGirl.create(:product, name: '', price: '99.99')
-      expect(@product).not_to be_valid
+      post :create, product: { name: '', price: '99.99'}
       expect(response).to render_template(:new)
     end
 
     it 'is not valid without price' do
-      @product = FactoryGirl.build(:product, name: 'Awesome Bike', price: '')
-      expect(@product).not_to be_valid
+      post :create, product: { name: 'Awesome Bike', price: ''}
+      expect(response).to render_template(:new)
     end
 
     it 'is valid with name and price' do
       post :create, product: FactoryGirl.attributes_for(:product)
-      expect(@product).to be_valid
       expect(response).to redirect_to(landing_page_path)
     end
   end
@@ -65,6 +62,12 @@ describe ProductsController, type: :controller do
       put :update, params: { id: @product.id, product: @attr }
       @product.reload
       expect(@product.price).to eq 99.00
+    end
+
+    it 'cannot update without name' do
+      @attr = { name: '', image_url: @product.image_url, id: @product.id, price: 99.00 }
+      put :update, params: { id: @product.id, product: @attr }
+      expect(response).to render_template(:edit)
     end
   end
 

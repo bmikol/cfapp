@@ -33,41 +33,19 @@ describe Product do
     expect(Product.new(description: 'Nice bike', name: 'race bike')).not_to be_valid
   end
 
-  context 'search in different environments' do
-    it 'returns a search' do
-      # Rails.stub(:env).and_return('production')
-
-      pinklady = Product.create(
-        name: 'Pink Lady Apple',
-        price: '2.99'
-      )
-      grannysmith = Product.create(
-        name: 'Granny Smith Apple',
-        price: '1.99'
-      )
-      valencia = Product.create(
-        name: 'Valencia Orange',
-        price: '0.99'
-      )
-      expect(Product.search('Apple')).to eq[pinklady, grannysmith]
-    end
-
-    # it 'returns a search on development' do
-    #   Rails.stub(:env).and_return('development')
-    #
-    #   pinklady = Product.create(
-    #     name: 'Pink Lady Apple',
-    #     price: '2.99'
-    #   )
-    #   grannysmith = Product.create(
-    #     name: 'Granny Smith Apple',
-    #     price: '1.99'
-    #   )
-    #   valencia = Product.create(
-    #     name: 'Valencia Orange',
-    #     price: '0.99'
-    #   )
-    #   expect(Product.search('Apple')).to eq[pinklady, grannysmith]
-    # end
+  it 'returns a search' do
+    pinklady = Product.create(
+      name: 'Pink Lady Apple',
+      price: '2.99'
+    )
+    grannysmith = Product.create(
+      name: 'Granny Smith Apple',
+      price: '1.99'
+    )
+    valencia = Product.create(
+      name: 'Valencia Orange',
+      price: '0.99'
+    )
+    expect(Product.search('Apple')).to eq[pinklady, grannysmith]
   end
 end
