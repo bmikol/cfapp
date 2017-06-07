@@ -30,7 +30,7 @@
 
 .lpbody,
 .search-bg {
-  background: url('/assets/unsplash-flo-karr.jpg') no-repeat center center fixed;
+  background: asset-data-url('unsplash-flo-karr.jpg') no-repeat center center fixed;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
