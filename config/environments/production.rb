@@ -64,6 +64,13 @@ Rails.application.configure do
                           socket_failure_delay: 0.2,
                           down_retry_delay: 60 }
 
+  # Implement access control headers
+  # config.static_cache_control = 'public, max-age=86400'
+  config.public_file_server.headers = {
+    'Cache-Control' => 'public, maxage=86400',
+    'Expires' => "#{1.day.from_now.to_formatted_s(:rfc822)}"
+  }
+
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "cfapp_#{Rails.env}"

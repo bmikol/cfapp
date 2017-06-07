@@ -2,7 +2,9 @@
   <div class="col-xs-12">
     <h1>About<br /><span class="brand">Bicycle Berlin</span></h1>
 
-    <%= image_tag("BicycleBerlin.jpg", class: "img-responsive center", alt: "Bicycle Berlin logo") %>
+    <% cache do %>
+      <%= image_tag("BicycleBerlin.jpg", class: "img-responsive center", alt: "Bicycle Berlin logo") %>
+    <% end %>
 
     <p class="p-link">Bicycle Berlin is a hypothetical bicycle store for the purpose of developing this simple e-commerce store. It&rsquo;s a Ruby on Rails web app developed as part of the <a href="https://careerfoundry.com" title="Link to CareerFoundry's website">CareerFoundry</a> Web Development curriculum by Brian Mikol.</p>
 
