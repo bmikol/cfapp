@@ -9,8 +9,20 @@ describe Product do
     @product.comments.create!(rating: 5, user: @user, body: 'Awesome bike!')
   end
 
+  it 'returns product' do
+    expect(@product).to be(@product)
+  end
+
   it 'returns the average rating of all comments' do
     expect(@product.average_rating).to eq 3
+  end
+
+  it 'returns the highest rating comment of all comments' do
+    expect(@product.highest_rating_comment.body).to eq('Awesome bike!')
+  end
+
+  it 'returns the lowest rating of all comments' do
+    expect(@product.lowest_rating_comment.body).to eq('Awful bike!')
   end
 
   it 'is not valid without name' do
@@ -19,5 +31,43 @@ describe Product do
 
   it 'is not valid without price' do
     expect(Product.new(description: 'Nice bike', name: 'race bike')).not_to be_valid
+  end
+
+  context 'search in different environments' do
+    it 'returns a search' do
+      # Rails.stub(:env).and_return('production')
+
+      pinklady = Product.create(
+        name: 'Pink Lady Apple',
+        price: '2.99'
+      )
+      grannysmith = Product.create(
+        name: 'Granny Smith Apple',
+        price: '1.99'
+      )
+      valencia = Product.create(
+        name: 'Valencia Orange',
+        price: '0.99'
+      )
+      expect(Product.search('Apple')).to eq[pinklady, grannysmith]
+    end
+
+    # it 'returns a search on development' do
+    #   Rails.stub(:env).and_return('development')
+    #
+    #   pinklady = Product.create(
+    #     name: 'Pink Lady Apple',
+    #     price: '2.99'
+    #   )
+    #   grannysmith = Product.create(
+    #     name: 'Granny Smith Apple',
+    #     price: '1.99'
+    #   )
+    #   valencia = Product.create(
+    #     name: 'Valencia Orange',
+    #     price: '0.99'
+    #   )
+    #   expect(Product.search('Apple')).to eq[pinklady, grannysmith]
+    # end
   end
 end

@@ -61,6 +61,9 @@ group :development, :test do
   gem 'brakeman', require: false
 end
 
+# Add SimpleCov to assess test coverage
+gem 'simplecov', group: :test, require: false
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -72,6 +75,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'heroku-deflater'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

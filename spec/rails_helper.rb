@@ -9,6 +9,17 @@ require 'devise'
 require 'support/factory_girl'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'simplecov'
+
+SimpleCov.start 'rails' do
+  add_group 'All for CareerFoundry Achievement', [
+    'app/controllers/products_controller',
+    'app/controllers/users_controller',
+    'app/models/product',
+    'app/models/comment'
+  ]
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

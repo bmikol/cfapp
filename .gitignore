@@ -26,3 +26,6 @@
 
 # Ignore Rubocop's nitpicking
 /rubocop.txt
+
+# Ignore SimpleCov testing output
+coverage/*
